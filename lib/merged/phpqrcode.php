@@ -1087,7 +1087,7 @@
         /**
         Creates PNG image.
         @param Array $frame frame containing code
-        @param String $filename (optional) output file name, if __false__ outputs to browser with required headers
+        @param String $filename (optional) output file name, if __false__ outputs to browser 
         @param Integer $pixelPerPoint (optional) pixel size, multiplier for each 'virtual' pixel
         @param Integer $outerFrame (optional) code margin (silent zone) in 'virtual'  pixels
         @param Boolean $saveandprint (optional) if __true__ code is outputed to browser and saved to file, otherwise only saved to file. It is effective only if $outfile is specified.
@@ -1098,12 +1098,10 @@
             $image = self::image($frame, $pixelPerPoint, $outerFrame);
             
             if ($filename === false) {
-                Header("Content-type: image/png");
                 ImagePng($image);
             } else {
                 if($saveandprint===TRUE){
                     ImagePng($image, $filename);
-                    header("Content-type: image/png");
                     ImagePng($image);
                 }else{
                     ImagePng($image, $filename);
@@ -1117,7 +1115,7 @@
         /**
         Creates JPEG image.
         @param Array $frame frame containing code
-        @param String $filename (optional) output file name, if __false__ outputs to browser with required headers
+        @param String $filename (optional) output file name, if __false__ outputs to browser 
         @param Integer $pixelPerPoint (optional) pixel size, multiplier for each 'virtual' pixel
         @param Integer $outerFrame (optional) code margin (silent zone) in 'virtual'  pixels
         @param Integer $q (optional) JPEG compression level (__0__ .. __100__)
@@ -1128,7 +1126,6 @@
             $image = self::image($frame, $pixelPerPoint, $outerFrame);
             
             if ($filename === false) {
-                Header("Content-type: image/jpeg");
                 ImageJpeg($image, null, $q);
             } else {
                 ImageJpeg($image, $filename, $q);            
@@ -1177,6 +1174,7 @@
     }
     
     /** @} */
+
 
 
 
